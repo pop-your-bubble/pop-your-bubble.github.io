@@ -1,6 +1,27 @@
 const { TimelineMax } = window;
 const controller = new ScrollMagic.Controller();
 
+$('.text-project').each(function(){
+  const textOverlay = $(this).find('.text-overlay');
+  let animateIn = new TimelineMax();
+
+  animateIn
+    .fromTo(
+      textOverlay,
+      2,
+      {skewX: 20, scale: 1.5},
+      {
+        skewX: 0,
+        xPercent: 100,
+        transformOrigin: '0% 100%',
+        ease: Power4.easeOut
+      }
+    );
+  const scene = new ScrollMagic.Scene({
+  triggerElement: this
+  }).addIndicators().setTween(animateIn).addTo(controller);
+});
+
 $('.project').each(function(){
   const imgOverlay = $(this).find('.overlay');
   const projectInfo = $(this).find('.project-info');
@@ -13,7 +34,7 @@ $('.project').each(function(){
     .fromTo(
       imgOverlay,
       2,
-      {skewX: 30, scale: 1.5},
+      {skewX: 20, scale: 1.5},
       {
         skewX: 0,
         xPercent: 100,
@@ -33,12 +54,18 @@ $('.project').each(function(){
     .from(
       smallTitle,
       0.3,
-      {autoAlpha: 0, y: 30, ease: Power4.easeOut},
+      {
+        autoAlpha: 0,
+        y: 30,
+        ease: Power4.easeOut
+      },
       '-=0.8'
     )
     .from(
       projectLink, 0.3,
-      {autoAlpha: 0, y: 30, ease: Power4.easeOut},
+      { autoAlpha: 0,
+        y: 30,
+        ease: Power4.easeOut},
       '-=0.8'
     )
     .from(
