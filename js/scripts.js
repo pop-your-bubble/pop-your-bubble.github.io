@@ -19,7 +19,7 @@ $('.text-project').each(function(){
     );
   const scene = new ScrollMagic.Scene({
   triggerElement: this
-  }).addIndicators().setTween(animateIn).addTo(controller);
+  }).setTween(animateIn).addTo(controller);
 });
 
 $('.project').each(function(){
@@ -77,7 +77,7 @@ $('.project').each(function(){
 
   const scene = new ScrollMagic.Scene({
   triggerElement: this
-  }).addIndicators().setTween(animateIn).addTo(controller);
+  }).setTween(animateIn).addTo(controller);
 });
 
 
